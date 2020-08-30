@@ -1,0 +1,23 @@
+.top-but-no-margin
+{
+    margin: 10px 0px 0px 0px;
+}
+ion-input
+{
+    width: 35px !important;
+    --padding-end: 0px !important;
+    text-align: center;
+    
+}
+
+.top-but-no-margin ion-button
+{
+    width: 30px !important;
+    padding: 0px !important;
+}
+
+ion-note
+{
+    min-width: 20px !important;
+    font-size: 15px;
+}

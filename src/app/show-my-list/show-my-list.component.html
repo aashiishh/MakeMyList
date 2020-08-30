@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="secondary"  (click)="onShareList()">
+        <ion-icon slot="icon-only" name="arrow-redo-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Your List</ion-title>
+    <ion-buttons slot="primary">
+      <ion-button color="danger"  (click)="onClose()">
+        <ion-icon slot="icon-only" name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col class="ion-text-center" size-md="6" offset-md="3">
+        <ion-list>
+          <ion-item-sliding *ngFor="let item of myList.list">
+            <div *ngIf="item">
+            <ion-item *ngIf="item.company">
+              <p>{{item.company}}</p>&nbsp;&nbsp;
+              <ion-label>{{item.name}}</ion-label>
+              <ion-badge color="secondary" slot="end">{{item.quantity}} {{item.unit}}</ion-badge>
+            </ion-item>
+            <ion-item *ngIf="!item.company">
+              <ion-label>{{item.name}}</ion-label>
+              <ion-badge color="secondary" slot="end">{{item.quantity}} {{item.unit}}</ion-badge>
+            </ion-item>
+            <ion-item-options side="end">
+              <ion-item-option color="danger" (click)="onDeleteItem(item)">
+                <ion-icon name="trash-outline"></ion-icon>
+              </ion-item-option>
+            </ion-item-options>
+          </div>
+          </ion-item-sliding>
+        </ion-list>
+
+
+      </ion-col>
+    </ion-row>
+    </ion-grid>
+    <!-- <div class="ion-padding" slot="fixed">
+      <ion-button expand="block" type="submit" class="ion-no-margin">Save List</ion-button>
+    </div> -->
+</ion-content>

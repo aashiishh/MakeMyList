@@ -1,0 +1,7 @@
+{
+  "name": "SimpleListMaker",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

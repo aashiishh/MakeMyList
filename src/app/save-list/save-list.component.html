@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="secondary" fill="outline" shape="round" (click)="onSave()">
+       <b> save </b>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Your List</ion-title>
+    <ion-buttons slot="primary">
+      <ion-button color="danger" fill="clear" (click)="onCancel()">
+        cancel
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col class="ion-text-center" size-md="6" offset-md="3">
+        <ion-list *ngFor="let item of ItemsList">
+          <ion-item>
+            <ion-label>{{item.name}}</ion-label>
+            <div slot="end" class="top-but-no-margin ion-no-padding">
+              <ion-row >
+                <ion-col class="ion-no-padding">
+                  <ion-button fill="clear" size="small" class="ion-no-padding" (click)="onInc(item)"><ion-icon slot="icon-only" name="add-circle-sharp"></ion-icon></ion-button>
+                </ion-col>
+                <ion-col class="ion-no-padding">
+                  <ion-input inputmode="decimal" type="number" [(ngModel)]="item.quantity" maxlength="3"></ion-input>
+                </ion-col>
+                <ion-col class="ion-no-padding">
+                  <ion-button fill="clear" size="small" class="ion-no-padding" (click)="onDec(item)"><ion-icon slot="icon-only" name="remove-circle-sharp"></ion-icon></ion-button>
+                </ion-col>
+              </ion-row>
+              <!-- <ion-button fill="clear" (click)="onInc(item)"><ion-icon slot="icon-only" name="add-circle-sharp"></ion-icon></ion-button> -->
+               <!-- <ion-input inputmode="numeric" [(ngModel)]="item.quantity"></ion-input> -->
+              <!-- <ion-button fill="clear" (click)="onDec(item)"><ion-icon slot="icon-only" name="remove-circle-sharp"></ion-icon></ion-button> -->
+            </div>
+            <ion-note color="dark" slot="end">{{item.unit}}</ion-note>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+    </ion-grid>
+    <!-- <div class="ion-padding" slot="fixed">
+      <ion-button expand="block" type="submit" class="ion-no-margin">Save List</ion-button>
+    </div> -->
+</ion-content>

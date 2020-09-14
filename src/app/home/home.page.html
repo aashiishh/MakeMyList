@@ -22,11 +22,19 @@
         
         <ion-card *ngFor="let list of myLists.slice().reverse()">
           <ion-item-sliding #slidinglist>
-          <ion-item>
+
+            <ion-item-options side="start">
+              <ion-item-option color="success" (click)="onEditList(list,slidinglist)">
+              <ion-icon name="create-outline" style="margin-bottom: 40px;"></ion-icon>
+            </ion-item-option>
+          </ion-item-options>
+
+            <ion-item>
             <ion-icon name="cart-outline" slot="start"></ion-icon>
-            <ion-label>{{list.name}}</ion-label>
+            <ion-label>{{list.name}}</ion-label>  
             <ion-button fill="outline" slot="end" (click)="onViewList(list)">View</ion-button>
           </ion-item>
+         
           <ion-item-options side="end">
             <ion-item-option color="danger" (click)="onDeleteList(list.id,list.name,slidinglist)">
               <ion-icon name="trash-outline" style="margin-bottom: 40px;"></ion-icon>

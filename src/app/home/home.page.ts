@@ -7,6 +7,7 @@ import { IfStmt } from '@angular/compiler';
 import { SelectedListItem } from '../model/selectedListItem';
 import { ModalController, IonItemSliding, AlertController, LoadingController, ToastController } from '@ionic/angular';
 import { ShowMyListComponent } from '../show-my-list/show-my-list.component';
+import { EditMyListComponent } from '../edit-my-list/edit-my-list.component';
 
 @Component({
   selector: 'app-home',
@@ -87,6 +88,21 @@ export class HomePage implements OnInit,OnDestroy{
     });
 
     await alert.present();
+  }
+
+  onEditList(list : ListProperties,slider : IonItemSliding)
+  {
+    slider.close();
+    this.modalCtrl.create({
+      component: EditMyListComponent,
+      componentProps: {itemsList : list.list}
+    }).then(modal => {
+      modal.present();
+      modal.onDidDismiss().then(result => {
+          // if(result.role==='confirm')
+          //  this.selectedItemsList = [];
+      })
+    })
   }
 
   ngOnDestroy()
